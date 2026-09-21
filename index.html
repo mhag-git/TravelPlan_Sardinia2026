@@ -40,7 +40,7 @@
 
     /* Layout */
     #sidebar {
-      width: 400px;
+      width: 410px;
       height: 100%;
       background: var(--card-bg);
       border-right: 1px solid var(--border);
@@ -58,7 +58,7 @@
 
     /* Header */
     .header {
-      padding: 16px 18px;
+      padding: 12px 14px;
       background: #0f172a;
       color: white;
       display: flex;
@@ -68,41 +68,83 @@
     }
 
     .header-title h1 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
 
     .header-title p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #94a3b8;
       margin-top: 2px;
     }
 
-    .lang-btn {
+    .header-actions {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-btn, .lang-btn {
       background: #1e293b;
       color: #f8fafc;
       border: 1px solid #334155;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      padding: 5px 8px;
+      border-radius: 16px;
+      font-size: 0.74rem;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 3px;
       transition: background 0.2s;
     }
 
-    .lang-btn:hover {
+    .nav-btn:hover, .lang-btn:hover {
       background: #334155;
+    }
+
+    /* Search Bar */
+    .search-box {
+      padding: 8px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Wind Banner */
+    .wind-banner {
+      background: #ecfeff;
+      border-bottom: 1px solid #a5f3fc;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      color: #0e7490;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
     }
 
     /* Filters */
     .filter-bar {
       display: flex;
       gap: 6px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       background: #f1f5f9;
       border-bottom: 1px solid var(--border);
       overflow-x: auto;
@@ -114,9 +156,9 @@
 
     .filter-btn {
       border: 1px solid #cbd5e1;
-      padding: 6px 13px;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
@@ -145,13 +187,14 @@
 
     /* Cards */
     .item-card {
-      padding: 14px;
+      padding: 12px 14px;
       background: var(--card-bg);
       border-radius: 12px;
       border: 1px solid var(--border);
       cursor: pointer;
       transition: all 0.2s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      position: relative;
     }
 
     .item-card:hover {
@@ -175,14 +218,14 @@
 
     .card-title {
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text);
     }
 
     .card-tag {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 6px;
       white-space: nowrap;
     }
@@ -192,14 +235,17 @@
     .tag-stadt { background: #fef3c7; color: #d97706; }
     .tag-natur { background: #dcfce7; color: #16a34a; }
     .tag-gastro { background: #fce7f3; color: #be185d; }
+    .tag-markt { background: #f3e8ff; color: #7e22ce; }
+    .tag-eis { background: #ffedd5; color: #c2410c; }
+    .tag-notfall { background: #ffe4e6; color: #e11d48; }
 
     .card-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 500;
     }
 
@@ -213,27 +259,47 @@
       padding: 2px 6px;
       border-radius: 4px;
       border: 1px solid #fef3c7;
+      font-size: 0.76rem;
     }
 
     .card-desc {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: #334155;
       line-height: 1.4;
       margin-bottom: 10px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fav-btn {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #cbd5e1;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .fav-btn.active {
+      color: #eab308;
+      transform: scale(1.1);
     }
 
     .gmaps-btn {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: var(--primary);
       text-decoration: none;
-      padding: 6px 10px;
+      padding: 5px 9px;
       background: var(--primary-light);
       border: 1px solid #bae6fd;
-      border-radius: 8px;
+      border-radius: 6px;
       transition: background 0.15s;
     }
 
@@ -241,19 +307,81 @@
       background: #e0f2fe;
     }
 
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      backdrop-filter: blur(2px);
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .modal-header h2 { font-size: 1.15rem; color: #0f172a; }
+    .modal-close {
+      background: #f1f5f9;
+      border: none;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Checklist Styles */
+    .checklist-group { margin-bottom: 16px; }
+    .checklist-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; font-size: 0.92rem; display: flex; align-items: center; gap: 6px; }
+    .check-item { display: flex; align-items: center; gap: 10px; padding: 7px 10px; background: #f8fafc; border-radius: 8px; margin-bottom: 6px; cursor: pointer; border: 1px solid #e2e8f0; font-size: 0.84rem; }
+    .check-item input { width: 16px; height: 16px; accent-color: var(--primary); }
+    .check-item.done { text-decoration: line-through; color: #94a3b8; background: #f1f5f9; }
+
+    /* Phrase Table Styles */
+    .phrase-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+    .phrase-it { font-weight: 700; color: #0369a1; font-size: 0.92rem; }
+    .phrase-trans { font-size: 0.82rem; color: #475569; margin-top: 2px; }
+
+    /* Rules Styles */
+    .rule-box { border-left: 4px solid var(--primary); padding: 8px 12px; background: #f0f9ff; border-radius: 0 8px 8px 0; margin-bottom: 10px; font-size: 0.84rem; }
+    .rule-box.warn { border-left-color: #ef4444; background: #fef2f2; }
+    .rule-box.yellow { border-left-color: #eab308; background: #fefce8; }
+
     /* Leaflet Popups */
     .leaflet-popup-content-wrapper {
       border-radius: 12px;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
     .leaflet-popup-content {
-      margin: 14px;
-      line-height: 1.45;
-      font-size: 0.88rem;
+      margin: 12px 14px;
+      line-height: 1.4;
+      font-size: 0.85rem;
     }
     .popup-title {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 4px;
       color: var(--text);
     }
@@ -262,15 +390,15 @@
       align-items: center;
       justify-content: space-between;
       color: var(--text-muted);
-      font-size: 0.82rem;
-      margin-bottom: 8px;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
       font-weight: 600;
-      gap: 12px;
+      gap: 10px;
     }
     .popup-desc {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: #334155;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     /* Mobile Bottom Toggle Bar */
@@ -280,7 +408,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 56px;
+      height: 54px;
       background: white;
       border-top: 1px solid var(--border);
       z-index: 2000;
@@ -291,7 +419,7 @@
       flex: 1;
       border: none;
       background: none;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--text-muted);
       display: flex;
@@ -314,7 +442,7 @@
       #sidebar {
         position: absolute;
         width: 100%;
-        height: calc(100% - 56px);
+        height: calc(100% - 54px);
         top: 0;
         left: 0;
         border-right: none;
@@ -328,7 +456,7 @@
 
       #map {
         width: 100%;
-        height: calc(100% - 56px);
+        height: calc(100% - 54px);
       }
 
       .mobile-nav {
@@ -345,17 +473,36 @@
       <h1 id="ui-title">Sardinien Entdecken</h1>
       <p id="ui-subtitle">Standort: Maracalagonis</p>
     </div>
-    <button class="lang-btn" onclick="toggleLanguage()">
-      <span id="lang-flag">🇬🇧</span> <span id="lang-text">English</span>
-    </button>
+    <div class="header-actions">
+      <button class="nav-btn" onclick="openModal('phraseModal')">🇮🇹 <span id="ui-phrases-btn">Sprache</span></button>
+      <button class="nav-btn" onclick="openModal('checklistModal')">🧳 <span id="ui-pack-btn">Packliste</span></button>
+      <button class="nav-btn" onclick="openModal('rulesModal')">🚗 <span id="ui-rules-btn">Parken</span></button>
+      <button class="nav-btn" onclick="openModal('windModal')">🌬️ <span id="ui-info-btn">Tipps</span></button>
+      <button class="lang-btn" onclick="toggleLanguage()">
+        <span id="lang-flag">🇬🇧</span> <span id="lang-text">EN</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Suchen (z.B. Pizza, Sand, Markt)..." oninput="handleSearch()">
+  </div>
+
+  <div class="wind-banner" onclick="openModal('windModal')">
+    <span>💡</span>
+    <span id="ui-wind-hint"><strong>Wind-Tipp:</strong> Bei Mistral (NW) sind Costa Rei & Villasimius windstill!</span>
   </div>
   
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all" onclick="filterItems('all')">Alle</button>
+    <button class="filter-btn" data-filter="fav" onclick="filterItems('fav')">⭐ Favoriten</button>
     <button class="filter-btn" data-filter="strand" onclick="filterItems('strand')">🏖️ Strände</button>
-    <button class="filter-btn" data-filter="gastro" onclick="filterItems('gastro')">🍕 Essen & Trinken</button>
-    <button class="filter-btn" data-filter="stadt" onclick="filterItems('stadt')">🏛️ Städte & Kultur</button>
-    <button class="filter-btn" data-filter="natur" onclick="filterItems('natur')">🦩 Natur & Tiere</button>
+    <button class="filter-btn" data-filter="gastro" onclick="filterItems('gastro')">🍕 Restaurants</button>
+    <button class="filter-btn" data-filter="markt" onclick="filterItems('markt')">🛒 Märkte</button>
+    <button class="filter-btn" data-filter="eis" onclick="filterItems('eis')">🍦 Eisdielen</button>
+    <button class="filter-btn" data-filter="stadt" onclick="filterItems('stadt')">🏛️ Kultur</button>
+    <button class="filter-btn" data-filter="natur" onclick="filterItems('natur')">🦩 Natur</button>
+    <button class="filter-btn" data-filter="notfall" onclick="filterItems('notfall')">🏥 Notfall & Supermarkt</button>
   </div>
   
   <div class="list-container" id="list"></div>
@@ -373,56 +520,291 @@
   </button>
 </div>
 
+<!-- Modal 1: Info & Wind -->
+<div class="modal-overlay" id="windModal" onclick="closeModalOnOverlay(event, 'windModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="ui-modal-title">🌬️ Wind- & Kleinkind-Tipps</h2>
+      <button class="modal-close" onclick="closeModal('windModal')">&times;</button>
+    </div>
+    <div id="ui-modal-body" style="font-size: 0.88rem; line-height: 1.5; color: #334155;"></div>
+  </div>
+</div>
+
+<!-- Modal 2: Sprachführer / Italian Phrases -->
+<div class="modal-overlay" id="phraseModal" onclick="closeModalOnOverlay(event, 'phraseModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="ui-phrase-title">🇮🇹 Italienisch-Spickzettel</h2>
+      <button class="modal-close" onclick="closeModal('phraseModal')">&times;</button>
+    </div>
+    <div id="ui-phrase-body"></div>
+  </div>
+</div>
+
+<!-- Modal 3: Pack- & Strand-Checkliste -->
+<div class="modal-overlay" id="checklistModal" onclick="closeModalOnOverlay(event, 'checklistModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="ui-checklist-title">🧳 Pack- & Strand-Checkliste</h2>
+      <button class="modal-close" onclick="closeModal('checklistModal')">&times;</button>
+    </div>
+    <div id="ui-checklist-body"></div>
+  </div>
+</div>
+
+<!-- Modal 4: Parken & Verkehrsregeln -->
+<div class="modal-overlay" id="rulesModal" onclick="closeModalOnOverlay(event, 'rulesModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="ui-rules-title">🚗 Park- & Verkehrsregeln</h2>
+      <button class="modal-close" onclick="closeModal('rulesModal')">&times;</button>
+    </div>
+    <div id="ui-rules-body"></div>
+  </div>
+</div>
+
 <script>
   let currentLang = 'de';
   let activeFilter = 'all';
+  let searchQuery = '';
+  let favorites = JSON.parse(localStorage.getItem('sardinia_favs') || '[]');
+  let checklistState = JSON.parse(localStorage.getItem('sardinia_checklist') || '{}');
 
   const i18n = {
     de: {
       title: "Sardinien Entdecken",
       subtitle: "Standort: Maracalagonis",
-      langText: "English",
+      langText: "EN",
       langFlag: "🇬🇧",
       tabList: "Liste",
       tabMap: "Karte",
-      gmapsBtn: "📍 In Google Maps öffnen",
+      infoBtn: "Tipps",
+      phrasesBtn: "Sprache",
+      packBtn: "Packliste",
+      rulesBtn: "Parken",
+      noResults: "Keine Einträge gefunden.",
+      modalHeader: "🌬️ Wind- & Kleinkind-Tipps",
+      phraseTitle: "🇮🇹 Italienisch-Spickzettel",
+      checklistTitle: "🧳 Pack- & Strand-Checkliste",
+      rulesTitle: "🚗 Parken & Verkehrsregeln",
+      searchPlaceholder: "🔍 Suchen (z.B. Pizza, Sand, Markt, Arzt)...",
+      windHint: "<strong>Wind-Tipp:</strong> Bei Mistral (NW) sind Costa Rei & Villasimius spiegelglatt!",
+      gmapsBtn: "📍 Google Maps",
       filters: {
         all: "Alle",
+        fav: "⭐ Favoriten",
         strand: "🏖️ Strände",
-        gastro: "🍕 Essen & Trinken",
-        stadt: "🏛️ Städte & Kultur",
-        natur: "🦩 Natur & Tiere"
+        gastro: "🍕 Restaurants",
+        markt: "🛒 Märkte",
+        eis: "🍦 Eisdielen",
+        stadt: "🏛️ Kultur",
+        natur: "🦩 Natur",
+        notfall: "🏥 Notfall & Supermarkt"
       },
       categories: {
         home: "Unterkunft",
         strand: "Strand",
         gastro: "Restaurant / Bar",
+        markt: "Markt / Einkaufen",
+        eis: "Eisdiele / Gelateria",
         stadt: "Stadt / Kultur",
-        natur: "Natur / Tiere"
-      }
+        natur: "Natur / Tiere",
+        notfall: "Notfall & Ärzte"
+      },
+      modalContent: `
+        <h3 style="color:#0284c7; margin-bottom:6px;">🌬️ Sardischer Wind-Guide</h3>
+        <p>Auf Sardinien bestimmt der Wind die Strandwahl:</p>
+        <ul style="margin: 6px 0 14px 18px;">
+          <li><strong>Mistral (Nordwest):</strong> Die Ostküste (Solanas, Villasimius, Costa Rei) ist windgeschützt und hat glattes Wasser.</li>
+          <li><strong>Sirocco (Südost):</strong> Weicht nach Poetto (Bereich Quartu) oder in schattige Parks (Sette Fratelli / Monte Urpinu) aus.</li>
+        </ul>
+        <h3 style="color:#0284c7; margin-bottom:6px;">👶 Tipps für den 3-Jährigen</h3>
+        <ul style="margin: 6px 0 14px 18px;">
+          <li><strong>Bester Kleinkindstrand:</strong> Poetto (Promenade mit Spielplätzen) & Scoglio di Peppino (Naturplanschbecken).</li>
+          <li><strong>Schattige Parks:</strong> Orto Botanico & Parco di Monte Urpinu (Pfauen & Enten füttern).</li>
+        </ul>
+        <h3 style="color:#e11d48; margin-bottom:6px;">🚨 Notrufnummern</h3>
+        <p><strong>Europäischer Notruf:</strong> 112<br>
+        <strong>Kinderklinik Cagliari:</strong> Ospedale Microcitemico (in der App gelistet)</p>
+      `,
+      phrases: [
+        { cat: "👶 Mit Kind / Restaurant", items: [
+          { it: "Un seggiolone, per favore.", de: "Ein Kinderstuhl, bitte." },
+          { it: "Pasta in bianco per il bambino (con burro / olio).", de: "Nudeln ohne Sauce für das Kind (nur Butter/Öl)." },
+          { it: "È piccante?", de: "Ist das scharf?" },
+          { it: "Possiamo scaldare questo biberon / latte?", de: "Können wir diese Flasche / Milch aufwärmen?" }
+        ]},
+        { cat: "🍽️ Restaurant & Bestellen", items: [
+          { it: "Il conto, per favore.", de: "Die Rechnung, bitte." },
+          { it: "Posso pagare con la carta?", de: "Kann ich mit Karte zahlen?" },
+          { it: "Un litro di acqua naturale / frizzante, per favore.", de: "Ein Liter stilles Wasser / Sprudelwasser, bitte." },
+          { it: "Avete un tavolo per 3 persone?", de: "Haben Sie einen Tisch für 3 Personen?" },
+          { it: "Un gelato con una pallina di fragola e cioccolato.", de: "Ein Eis mit einer Kugel Erdbeer und Schoko." }
+        ]},
+        { cat: "🏖️ Am Strand & Unterwegs", items: [
+          { it: "Due lettini e un ombrellone, per favore.", de: "Zwei Liegen und ein Sonnenschirm, bitte." },
+          { it: "Quanto costa per tutto il giorno?", de: "Wie viel kostet es für den ganzen Tag?" },
+          { it: "Dov'è il bagno?", de: "Wo ist die Toilette?" },
+          { it: "Scusi, dov'è la farmacia più vicina?", de: "Entschuldigung, wo ist die nächste Apotheke?" }
+        ]}
+      ],
+      checklist: [
+        { group: "🏖️ Für den Strand (mit 3-Jährigem)", items: [
+          { id: "c1", label: "UV-Schutzkleidung & Sonnenhut" },
+          { id: "c2", label: "Sonnencreme LSF 50+ (wasserfest)" },
+          { id: "c3", label: "Sonnenschirm / Strandmuschel (Schatten)" },
+          { id: "c4", label: "Badeschuhe & Schwimmflügel / Schwimmweste" },
+          { id: "c5", label: "Eimer, Schaufel & Sandspielzeug" },
+          { id: "c6", label: "Strandhandtücher & Wickel-/Wechselkleidung" },
+          { id: "c7", label: "Genügend Trinkwasser & Fruchtsnacks" }
+        ]},
+        { group: "🚗 Für unterwegs & Mietwagen", items: [
+          { id: "c8", label: "Kleingeld / Münzen für Parkscheinautomaten" },
+          { id: "c9", label: "EasyPark App auf dem Smartphone installiert" },
+          { id: "c10", label: "Kleine Reiseapotheke (Pflaster, Mückenspray, Fiebersaft)" },
+          { id: "c11", label: "Feuchttücher & Mülltüten für unterwegs" }
+        ]}
+      ],
+      rulesContent: `
+        <h3 style="color:#0284c7; margin-bottom:8px;">🅿️ Parkstreifen-Farben in Italien</h3>
+        <div class="rule-box">
+          <strong>⚪ Weiße Linien:</strong> Kostenlos parken (ggf. blaue Parkscheibe *Disco Orario* beachten).
+        </div>
+        <div class="rule-box">
+          <strong>🔵 Blaue Linien:</strong> Gebührenpflichtig. Parkticket am Automaten lösen oder per <em>EasyPark App</em> zahlen.
+        </div>
+        <div class="rule-box warn">
+          <strong>🟡 Gelbe Linien:</strong> Absolutes Halteverbot! Nur für Anwohner, Lieferanten oder Behinderte reserviert.
+        </div>
+
+        <h3 style="color:#0284c7; margin:14px 0 8px;">🚫 ZTL (Zona a Traffico Limitato)</h3>
+        <div class="rule-box warn">
+          <strong>Vorsicht in Altstädten (z.B. Castello in Cagliari):</strong> Automatische Kameras erfassen Kennzeichen. Unberechtigtes Einfahren führt zu hohen Strafzetteln! Parkt am besten in Parkhäusern am Rand (z.B. <em>Parcheggio Regina Elena</em>).
+        </div>
+
+        <h3 style="color:#0284c7; margin:14px 0 8px;">💶 Strand-Parken & Maut</h3>
+        <div class="rule-box">
+          An vielen Traumstränden (z.B. Porto Giunco, Solanas, Costa Rei) kosten die Tagestickets für PKW ca. 5–10 € pro Tag. Manche Automaten nehmen nur Münzen oder kontaktlose Karte.
+        </div>
+      `
     },
     en: {
       title: "Explore Sardinia",
       subtitle: "Base: Maracalagonis",
-      langText: "Deutsch",
+      langText: "DE",
       langFlag: "🇩🇪",
       tabList: "List",
       tabMap: "Map",
-      gmapsBtn: "📍 Open in Google Maps",
+      infoBtn: "Tips",
+      phrasesBtn: "Phrases",
+      packBtn: "Packing",
+      rulesBtn: "Parking",
+      noResults: "No matching places found.",
+      modalHeader: "🌬️ Wind & Toddler Tips",
+      phraseTitle: "🇮🇹 Italian Phrasebook",
+      checklistTitle: "🧳 Packing & Beach Checklist",
+      rulesTitle: "🚗 Parking & Driving Rules",
+      searchPlaceholder: "🔍 Search (e.g. Pizza, Sand, Market, Doctor)...",
+      windHint: "<strong>Wind Tip:</strong> During Mistral (NW), Costa Rei & Villasimius are calm & flat!",
+      gmapsBtn: "📍 Google Maps",
       filters: {
         all: "All",
+        fav: "⭐ Favorites",
         strand: "🏖️ Beaches",
-        gastro: "🍕 Food & Drinks",
-        stadt: "🏛️ Towns & Culture",
-        natur: "🦩 Nature & Wildlife"
+        gastro: "🍕 Restaurants",
+        markt: "🛒 Markets",
+        eis: "🍦 Gelato",
+        stadt: "🏛️ Culture",
+        natur: "🦩 Nature",
+        notfall: "🏥 Emergency & Shop"
       },
       categories: {
-        home: "Accommodation",
+        home: "Base",
         strand: "Beach",
         gastro: "Restaurant / Bar",
+        markt: "Market / Shopping",
+        eis: "Gelateria / Ice Cream",
         stadt: "Town / Culture",
-        natur: "Nature / Wildlife"
-      }
+        natur: "Nature / Wildlife",
+        notfall: "Emergency & Health"
+      },
+      modalContent: `
+        <h3 style="color:#0284c7; margin-bottom:6px;">🌬️ Sardinia Wind Guide</h3>
+        <p>Wind direction determines the best beach of the day:</p>
+        <ul style="margin: 6px 0 14px 18px;">
+          <li><strong>Mistral (North-West):</strong> The east coast (Solanas, Villasimius, Costa Rei) is sheltered with crystal-clear calm water.</li>
+          <li><strong>Sirocco (South-East):</strong> Head towards sheltered bays or shaded parks (Sette Fratelli / Monte Urpinu).</li>
+        </ul>
+        <h3 style="color:#0284c7; margin-bottom:6px;">👶 Toddler Friendly Highlights</h3>
+        <ul style="margin: 6px 0 14px 18px;">
+          <li><strong>Best Beaches for Toddlers:</strong> Poetto (flat boardwalk + playgrounds) & Scoglio di Peppino (natural warm wading pool).</li>
+          <li><strong>Shady Parks:</strong> Botanical Gardens & Monte Urpinu Park (peacocks, duck ponds & trees).</li>
+        </ul>
+        <h3 style="color:#e11d48; margin-bottom:6px;">🚨 Emergency Contacts</h3>
+        <p><strong>General European Emergency:</strong> 112<br>
+        <strong>Pediatric Children's Hospital:</strong> Ospedale Microcitemico Cagliari (listed on map)</p>
+      `,
+      phrases: [
+        { cat: "👶 With Toddler / Dining", items: [
+          { it: "Un seggiolone, per favore.", de: "A high chair, please." },
+          { it: "Pasta in bianco per il bambino (con burro / olio).", de: "Plain pasta for the toddler (with butter or olive oil)." },
+          { it: "È piccante?", de: "Is it spicy?" },
+          { it: "Possiamo scaldare questo biberon / latte?", de: "Could you warm up this baby bottle / milk?" }
+        ]},
+        { cat: "🍽️ Restaurant & Ordering", items: [
+          { it: "Il conto, per favore.", de: "The bill, please." },
+          { it: "Posso pagare con la carta?", de: "Can I pay by card?" },
+          { it: "Un litro di acqua naturale / frizzante, per favore.", de: "A liter of still / sparkling water, please." },
+          { it: "Avete un tavolo per 3 persone?", de: "Do you have a table for 3 people?" },
+          { it: "Un gelato con una pallina di fragola e cioccolato.", de: "An ice cream with one scoop of strawberry and chocolate." }
+        ]},
+        { cat: "🏖️ Beach & Travel", items: [
+          { it: "Due lettini e un ombrellone, per favore.", de: "Two sunbeds and an umbrella, please." },
+          { it: "Quanto costa per tutto il giorno?", de: "How much is it for the whole day?" },
+          { it: "Dov'è il bagno?", de: "Where is the restroom?" },
+          { it: "Scusi, dov'è la farmacia più vicina?", de: "Excuse me, where is the nearest pharmacy?" }
+        ]}
+      ],
+      checklist: [
+        { group: "🏖️ Beach Essentials (with 3-Year-Old)", items: [
+          { id: "c1", label: "UV protective swimwear & sun hat" },
+          { id: "c2", label: "SPF 50+ Sunscreen (waterproof & reef-safe)" },
+          { id: "c3", label: "Beach umbrella / pop-up sun tent (crucial for shade)" },
+          { id: "c4", label: "Water shoes & toddler swim floaties / life vest" },
+          { id: "c5", label: "Bucket, shovel & beach sand toys" },
+          { id: "c6", label: "Beach towels & spare change of clothes" },
+          { id: "c7", label: "Plenty of fresh drinking water & fruit snacks" }
+        ]},
+        { group: "🚗 On the Road & Car Rental", items: [
+          { id: "c8", label: "Euro coins for beach parking ticket meters" },
+          { id: "c9", label: "EasyPark App installed on smartphone" },
+          { id: "c10", label: "Mini travel first aid (bandaids, mosquito spray, baby syrup)" },
+          { id: "c11", label: "Wet wipes & small trash bags for the car" }
+        ]}
+      ],
+      rulesContent: `
+        <h3 style="color:#0284c7; margin-bottom:8px;">🅿️ Parking Line Colors in Italy</h3>
+        <div class="rule-box">
+          <strong>⚪ White Lines:</strong> Free parking (watch out for parking disc *Disco Orario* signs).
+        </div>
+        <div class="rule-box">
+          <strong>🔵 Blue Lines:</strong> Paid parking. Buy a ticket at the meter or use the <em>EasyPark App</em>.
+        </div>
+        <div class="rule-box warn">
+          <strong>🟡 Yellow Lines:</strong> Strict No Parking! Reserved for residents, disabled or loading zones.
+        </div>
+
+        <h3 style="color:#0284c7; margin:14px 0 8px;">🚫 ZTL (Restricted Traffic Zones)</h3>
+        <div class="rule-box warn">
+          <strong>Careful in historical town centers (e.g. Castello, Cagliari):</strong> Automated cameras will capture your plate and fine unauthorized cars. Park in nearby car parks (e.g. <em>Parcheggio Regina Elena</em>).
+        </div>
+
+        <h3 style="color:#0284c7; margin:14px 0 8px;">💶 Beach Parking Fees</h3>
+        <div class="rule-box">
+          Famous beaches (e.g. Porto Giunco, Solanas, Costa Rei) usually charge around €5–€10 per day for car parking. Keep some coins handy as backup.
+        </div>
+      `
     }
   };
 
@@ -433,12 +815,11 @@
       category: "home",
       coords: [39.27911, 9.24572],
       driveTime: { de: "Ausgangspunkt", en: "Starting Point" },
-      rating: "Basis",
+      rating: { de: "Basis", en: "Base" },
       description: {
         de: "Euer Ferienstandort – ideale Anbindung nach Cagliari, Villasimius und Costa Rei.",
         en: "Your holiday base – great location for trips to Cagliari, Villasimius and Costa Rei."
       },
-      gmapsQuery: "39.27911,9.24572",
       color: "#ef4444"
     },
     // --- STRÄNDE ---
@@ -448,12 +829,11 @@
       category: "strand",
       coords: [39.1994, 9.1706],
       driveTime: { de: "ca. 18 Min.", en: "approx. 18 mins" },
-      rating: "⭐ 4.5 (18k+)",
+      rating: { de: "⭐ 4.5 (18k+)", en: "⭐ 4.5 (18k+)" },
       description: {
         de: "Kilometerlanger flacher Sandstrand mit breiter autofreier Promenade, Kiosken, Liegen und Spielplätzen.",
         en: "Miles of shallow sandy beach with a wide pedestrian promenade, snack bars, playgrounds and rentals."
       },
-      gmapsQuery: "Spiaggia del Poetto Cagliari",
       color: "#0284c7"
     },
     {
@@ -462,12 +842,11 @@
       category: "strand",
       coords: [39.1388, 9.4293],
       driveTime: { de: "ca. 32 Min.", en: "approx. 32 mins" },
-      rating: "⭐ 4.6 (3.8k+)",
+      rating: { de: "⭐ 4.6 (3.8k+)", en: "⭐ 4.6 (3.8k+)" },
       description: {
         de: "Geschützte Bucht mit feinem Sand, flach abfallendem Wasser und Parkplätzen direkt am Strand.",
         en: "Sheltered bay with fine sand, shallow warm water and parking directly by the beach."
       },
-      gmapsQuery: "Spiaggia di Solanas",
       color: "#0284c7"
     },
     {
@@ -476,12 +855,11 @@
       category: "strand",
       coords: [39.1226, 9.5218],
       driveTime: { de: "ca. 50 Min.", en: "approx. 50 mins" },
-      rating: "⭐ 4.8 (8.5k+)",
+      rating: { de: "⭐ 4.8 (8.5k+)", en: "⭐ 4.8 (8.5k+)" },
       description: {
         de: "Puderzuckerweißer Sand, seichtes Karibikwasser und Lagune mit Flamingos direkt dahinter.",
         en: "Powder-soft white sand, shallow turquoise waters and a lagoon with wild pink flamingos behind it."
       },
-      gmapsQuery: "Spiaggia di Porto Giunco Villasimius",
       color: "#0284c7"
     },
     {
@@ -490,12 +868,11 @@
       category: "strand",
       coords: [39.1352, 9.4891],
       driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
-      rating: "⭐ 4.5 (2.2k+)",
+      rating: { de: "⭐ 4.5 (2.2k+)", en: "⭐ 4.5 (2.2k+)" },
       description: {
         de: "Ruhige Bucht mit schattigen Bäumen am Rand, feinem Sand und guter Gastronomie.",
         en: "Calm bay with natural shady pine trees, gentle sand and family-friendly beach bars."
       },
-      gmapsQuery: "Spiaggia di Campus Villasimius",
       color: "#0284c7"
     },
     {
@@ -504,12 +881,11 @@
       category: "strand",
       coords: [39.2312, 9.5744],
       driveTime: { de: "ca. 55 Min.", en: "approx. 55 mins" },
-      rating: "⭐ 4.8 (4.1k+)",
+      rating: { de: "⭐ 4.8 (4.1k+)", en: "⭐ 4.8 (4.1k+)" },
       description: {
         de: "Traumstrand mit natürlichem, warmem 'Planschbecken' am markanten Peppino-Felsen.",
         en: "Dreamy endless beach with a natural shallow paddling pool area by the iconic Peppino rock."
       },
-      gmapsQuery: "Scoglio di Peppino Costa Rei",
       color: "#0284c7"
     },
     {
@@ -518,12 +894,11 @@
       category: "strand",
       coords: [38.9868, 9.0175],
       driveTime: { de: "ca. 55 Min.", en: "approx. 55 mins" },
-      rating: "⭐ 4.5 (2.9k+)",
+      rating: { de: "⭐ 4.5 (2.9k+)", en: "⭐ 4.5 (2.9k+)" },
       description: {
         de: "Sehr ruhige, windgeschützte Sandbucht direkt neben den antiken Ruinen.",
         en: "Very calm, wind-protected sandy cove located right next to the ancient Roman ruins."
       },
-      gmapsQuery: "Spiaggia di Nora Pula",
       color: "#0284c7"
     },
     // --- GASTRO / RESTAURANTS ---
@@ -533,12 +908,11 @@
       category: "gastro",
       coords: [39.3025, 9.2045],
       driveTime: { de: "ca. 8 Min.", en: "approx. 8 mins" },
-      rating: "⭐ 4.4 (1.2k+) · €€",
+      rating: { de: "⭐ 4.4 (1.2k+) · €€", en: "⭐ 4.4 (1.2k+) · €€" },
       description: {
         de: "Sehr nah an Maracalagonis. Hervorragende Holzofen-Pizza und sardische Hausmannskost. Sehr kinderfreundlich.",
         en: "Very close to Maracalagonis. Fantastic wood-fired pizza and traditional Sardinian dishes. Family friendly."
       },
-      gmapsQuery: "Sa Mola Sinnai",
       color: "#be185d"
     },
     {
@@ -547,12 +921,11 @@
       category: "gastro",
       coords: [39.2855, 9.2610],
       driveTime: { de: "ca. 5 Min.", en: "approx. 5 mins" },
-      rating: "⭐ 4.6 (600+) · €€",
+      rating: { de: "⭐ 4.6 (600+) · €€", en: "⭐ 4.6 (600+) · €€" },
       description: {
         de: "Authentisches traditionelles Menü mit Spanferkel (Porceddu), Culurgiones und regionalen Vorspeisen zu fairem Festpreis.",
         en: "Authentic fixed-price Sardinian feast: roasted suckling pig (Porceddu), homemade pasta and appetizers."
       },
-      gmapsQuery: "Agriturismo Maracalagonis",
       color: "#be185d"
     },
     {
@@ -561,12 +934,11 @@
       category: "gastro",
       coords: [39.2139, 9.1138],
       driveTime: { de: "ca. 22 Min.", en: "approx. 22 mins" },
-      rating: "⭐ 4.4 (2.7k+) · €€",
+      rating: { de: "⭐ 4.4 (2.7k+) · €€", en: "⭐ 4.4 (2.7k+) · €€" },
       description: {
         de: "Uriges Traditionslokal im Marina-Viertel. Frischester Fisch, Meeresfrüchte-Pasta und herzliche Atmosphäre.",
         en: "Historic tavern in Cagliari's Marina district. Fresh seafood, traditional pasta and lively vibe."
       },
-      gmapsQuery: "Trattoria Lillicu Cagliari",
       color: "#be185d"
     },
     {
@@ -575,12 +947,11 @@
       category: "gastro",
       coords: [39.1422, 9.4325],
       driveTime: { de: "ca. 32 Min.", en: "approx. 32 mins" },
-      rating: "⭐ 4.4 (1.5k+) · €€",
+      rating: { de: "⭐ 4.4 (1.5k+) · €€", en: "⭐ 4.4 (1.5k+) · €€" },
       description: {
         de: "Toller Zwischenstopp nach dem Strandtag. Große Portionen, exzellente Fischgerichte & Pizzen zu fairen Preisen.",
         en: "Great stop after a day at the beach. Generous portions, delicious seafood and pizzas at fair prices."
       },
-      gmapsQuery: "Ristorante Da Barbara Solanas",
       color: "#be185d"
     },
     {
@@ -589,12 +960,11 @@
       category: "gastro",
       coords: [39.0131, 9.0018],
       driveTime: { de: "ca. 55 Min.", en: "approx. 55 mins" },
-      rating: "⭐ 4.5 (3.2k+) · €€",
+      rating: { de: "⭐ 4.5 (3.2k+) · €€", en: "⭐ 4.5 (3.2k+) · €€" },
       description: {
         de: "Wunderschöner sardischer Innenhof, bestes Spanferkel, Culurgiones & Seadas. Sehr charmant für Familien.",
         en: "Charming traditional courtyard setting, delicious suckling pig, culurgiones ravioli and sweet seadas."
       },
-      gmapsQuery: "Su Furriadroxu Pula",
       color: "#be185d"
     },
     {
@@ -603,27 +973,105 @@
       category: "gastro",
       coords: [39.1428, 9.5215],
       driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
-      rating: "⭐ 4.4 (1.9k+) · €€",
+      rating: { de: "⭐ 4.4 (1.9k+) · €€", en: "⭐ 4.4 (1.9k+) · €€" },
       description: {
         de: "Beliebtes Restaurant für knusprige Pizza, frische Meeresfrüchte und unkomplizierten Service mitten in Villasimius.",
         en: "Popular spot in central Villasimius for crispy pizza, pasta, fresh fish and prompt service."
       },
-      gmapsQuery: "Ristorante Il Capitano Villasimius",
       color: "#be185d"
+    },
+    // --- MÄRKTE ---
+    {
+      id: 30,
+      name: { de: "Mercato Civico di San Benedetto (Cagliari)", en: "San Benedetto Food & Fish Market (Cagliari)" },
+      category: "markt",
+      coords: [39.2222, 9.1235],
+      driveTime: { de: "ca. 20 Min.", en: "approx. 20 mins" },
+      rating: { de: "⭐ 4.7 (7.8k+)", en: "⭐ 4.7 (7.8k+)" },
+      description: {
+        de: "Größter überdachter Fisch- & Lebensmittelmarkt Europas (Mo–Sa Vormittags). Riesiges Spektakel für Kinder!",
+        en: "Europe's largest covered food & fish market (Mon–Sat mornings). Vibrant, authentic experience with fresh local delicacies."
+      },
+      color: "#7e22ce"
+    },
+    {
+      id: 31,
+      name: { de: "Wochenmarkt Quartu Sant'Elena (Mittwoch)", en: "Weekly Market Quartu Sant'Elena (Wed)" },
+      category: "markt",
+      coords: [39.2435, 9.1832],
+      driveTime: { de: "ca. 14 Min.", en: "approx. 14 mins" },
+      rating: { de: "⭐ 4.4 (Markt)", en: "⭐ 4.4 (Market)" },
+      description: {
+        de: "Großer Wochenmarkt jeden Mittwochvormittag: Frisches Obst, Käse, Kleidung & sardische Spezialitäten.",
+        en: "Large local outdoor market every Wednesday morning: fresh fruit, local cheeses, clothes and regional specialties."
+      },
+      color: "#7e22ce"
+    },
+    {
+      id: 32,
+      name: { de: "Mercatino di Villasimius (Samstag)", en: "Villasimius Weekly Market (Sat)" },
+      category: "markt",
+      coords: [39.1450, 9.5180],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "⭐ 4.3 (Markt)", en: "⭐ 4.3 (Market)" },
+      description: {
+        de: "Schöner Wochenmarkt jeden Samstagvormittag in Villasimius mit Kunsthandwerk, Honig, Käse und Strandartikeln.",
+        en: "Weekly morning market every Saturday with Sardinian cheese, honey, crafts and summer clothes."
+      },
+      color: "#7e22ce"
+    },
+    // --- EISDIELEN & GELATERIAS ---
+    {
+      id: 40,
+      name: { de: "I Fenu Gelateria e Pasticceria (Cagliari)", en: "I Fenu Gelateria (Cagliari)" },
+      category: "eis",
+      coords: [39.2175, 9.1172],
+      driveTime: { de: "ca. 22 Min.", en: "approx. 22 mins" },
+      rating: { de: "⭐ 4.7 (1.4k+) · Prämierte Eisdiele", en: "⭐ 4.7 (1.4k+) · Award-winning Gelato" },
+      description: {
+        de: "Mehrmals als beste Gelateria Italiens ausgezeichnet! Spektakuläres handgemachtes Eis (z.B. Pistazie, Schafsmilch-Ricotta & Honig).",
+        en: "Awarded as one of Italy's top gelaterias! Incredible artisan ice cream (e.g. Bronte pistachio, ricotta & honey)."
+      },
+      color: "#c2410c"
+    },
+    {
+      id: 41,
+      name: { de: "Gelateria Chiccheria (Villasimius)", en: "Gelateria Chiccheria (Villasimius)" },
+      category: "eis",
+      coords: [39.1435, 9.5218],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "⭐ 4.6 (1.8k+)", en: "⭐ 4.6 (1.8k+)" },
+      description: {
+        de: "Kult-Eisdiele in der Fußgängerzone von Villasimius. Große Kugeln, frische Zutaten und vegane Fruchtsorbets.",
+        en: "Legendary gelato spot in Villasimius pedestrian zone. Huge scoops, natural ingredients and great fruit sorbets."
+      },
+      color: "#c2410c"
+    },
+    {
+      id: 42,
+      name: { de: "Bobocono (Poetto Strand)", en: "Bobocono Artisanal Gelato (Poetto Beach)" },
+      category: "eis",
+      coords: [39.1965, 9.1650],
+      driveTime: { de: "ca. 18 Min.", en: "approx. 18 mins" },
+      rating: { de: "⭐ 4.5 (900+)", en: "⭐ 4.5 (900+)" },
+      description: {
+        de: "Eisgenuss direkt an der Poetto-Strandpromenade. Berühmt für den 'Bobocono' (Eis am Stiel) & Cremes.",
+        en: "Artisanal gelato right on the beach boulevard. Famous for custom gelato sticks and creamy cups."
+      },
+      color: "#c2410c"
     },
     // --- STÄDTE & KULTUR ---
     {
       id: 7,
-      name: { de: "Cagliari (Altstadt Castello & Markt)", en: "Cagliari (Castello Old Town & Market)" },
+      name: { de: "Cagliari (Altstadt Castello & Bastion)", en: "Cagliari (Castello Old Town & Bastion)" },
       category: "stadt",
       coords: [39.2185, 9.1170],
       driveTime: { de: "ca. 22 Min.", en: "approx. 22 mins" },
-      rating: "⭐ 4.7 (Highlights)",
+      rating: { de: "⭐ 4.7 (Highlights)", en: "⭐ 4.7 (Highlights)" },
       description: {
-        de: "Castello-Viertel mit Panoramablick (Aufzüge vorhanden) und der berühmte Lebensmittelmarkt San Benedetto.",
-        en: "Historic hilltop fortress with panoramic terraces (public elevators available) and vibrant food market."
+        de: "Castello-Viertel mit Panoramablick (Aufzüge vorhanden) und Bastione di Saint Remy.",
+        en: "Historic hilltop fortress with panoramic terraces (public elevators available) and Saint Remy Bastion."
       },
-      gmapsQuery: "Bastione di Saint Remy Cagliari",
       color: "#d97706"
     },
     {
@@ -632,12 +1080,11 @@
       category: "stadt",
       coords: [39.1432, 9.5210],
       driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
-      rating: "⭐ 4.6 (Town)",
+      rating: { de: "⭐ 4.6 (Ort)", en: "⭐ 4.6 (Town)" },
       description: {
         de: "Abends autofreie Flaniermeile mit vielen Eisdielen, Pizzerien und Läden.",
         en: "Lively evening pedestrian zone packed with artisan boutiques, gelato shops and restaurants."
       },
-      gmapsQuery: "Villasimius Zentrum",
       color: "#d97706"
     },
     {
@@ -646,12 +1093,11 @@
       category: "stadt",
       coords: [39.0094, 9.0006],
       driveTime: { de: "ca. 55 Min.", en: "approx. 55 mins" },
-      rating: "⭐ 4.6 (4.5k+)",
+      rating: { de: "⭐ 4.6 (4.5k+)", en: "⭐ 4.6 (4.5k+)" },
       description: {
         de: "Hübscher Ort mit lebendiger Piazza und antike Ruinen direkt am Meer mit ebenen Wegen.",
         en: "Pretty town square and well-preserved ancient Phoenician/Roman ruins right along the seafront."
       },
-      gmapsQuery: "Parco Archeologico di Nora",
       color: "#d97706"
     },
     {
@@ -660,12 +1106,11 @@
       category: "stadt",
       coords: [39.7061, 8.9922],
       driveTime: { de: "ca. 65 Min.", en: "approx. 65 mins" },
-      rating: "⭐ 4.7 (7.2k+)",
+      rating: { de: "⭐ 4.7 (7.2k+)", en: "⭐ 4.7 (7.2k+)" },
       description: {
         de: "Die berühmteste Nuraghen-Festung Sardiniens – faszinierende 3.500 Jahre alte Geschichte.",
         en: "Sardinia's most famous Bronze-Age megalithic fortress complex (3,500 years old)."
       },
-      gmapsQuery: "Su Nuraxi Barumini",
       color: "#d97706"
     },
     // --- NATUR & TIERE ---
@@ -675,12 +1120,11 @@
       category: "natur",
       coords: [39.2290, 9.1670],
       driveTime: { de: "ca. 18 Min.", en: "approx. 18 mins" },
-      rating: "⭐ 4.5 (3.4k+)",
+      rating: { de: "⭐ 4.5 (3.4k+)", en: "⭐ 4.5 (3.4k+)" },
       description: {
         de: "Riesiges Feuchtgebiet mit Flamingokolonien. Fahrradverleih mit Kindersitzen vor Ort.",
         en: "Expansive salt marshes home to thousands of pink flamingos. Bike rentals with child seats available."
       },
-      gmapsQuery: "Parco Naturale Molentargius Saline",
       color: "#16a34a"
     },
     {
@@ -689,12 +1133,11 @@
       category: "natur",
       coords: [39.2954, 9.3871],
       driveTime: { de: "ca. 28 Min.", en: "approx. 28 mins" },
-      rating: "⭐ 4.6 (1.1k+)",
+      rating: { de: "⭐ 4.6 (1.1k+)", en: "⭐ 4.6 (1.1k+)" },
       description: {
         de: "Schattige Wälder und sardisches Hirsch-Gehege (Cervo Sardo) an der Caserma Noci.",
         en: "Shaded mountain forest trails with a Sardinian deer wildlife enclosure at Caserma Noci."
       },
-      gmapsQuery: "Parco dei Sette Fratelli Caserma Umberto Noci",
       color: "#16a34a"
     },
     {
@@ -703,13 +1146,65 @@
       category: "natur",
       coords: [39.2227, 9.1105],
       driveTime: { de: "ca. 24 Min.", en: "approx. 24 mins" },
-      rating: "⭐ 4.6 (5.2k+)",
+      rating: { de: "⭐ 4.6 (5.2k+)", en: "⭐ 4.6 (5.2k+)" },
       description: {
         de: "Wunderschöner, schattiger botanischer Garten mit Teichen, riesigen Ficus-Bäumen und Schildkröten.",
         en: "Lush botanical garden offering cool shade, ponds, massive ficus trees and free-roaming turtles."
       },
-      gmapsQuery: "Orto Botanico di Cagliari",
       color: "#16a34a"
+    },
+    {
+      id: 14,
+      name: { de: "Parco di Monte Urpinu (Spielplatz & Pfauen)", en: "Monte Urpinu Park (Peacocks & Playground)" },
+      category: "natur",
+      coords: [39.2135, 9.1352],
+      driveTime: { de: "ca. 20 Min.", en: "approx. 20 mins" },
+      rating: { de: "⭐ 4.6 (4.2k+)", en: "⭐ 4.6 (4.2k+)" },
+      description: {
+        de: "Toller grüner Stadtpark mit schattigen Pinien, freilaufenden Pfauen, Ententeich und großem Spielplatz.",
+        en: "Beautiful shaded hilltop park with free-roaming peacocks, ducks, playgrounds and sweeping views."
+      },
+      color: "#16a34a"
+    },
+    // --- NOTFALL & EINKAUFEN ---
+    {
+      id: 50,
+      name: { de: "Ospedale Microcitemico (Kinder-Notaufnahme)", en: "Children's Hospital Emergency (Microcitemico)" },
+      category: "notfall",
+      coords: [39.2394, 9.1245],
+      driveTime: { de: "ca. 22 Min.", en: "approx. 22 mins" },
+      rating: { de: "🏥 24h Notaufnahme", en: "🏥 24/7 Pediatric ER" },
+      description: {
+        de: "Spezialisierte Kinderklinik in Cagliari mit 24/7 Notaufnahme (*Pronto Soccorso Pediatrico*). Tel: +39 070 609 5500",
+        en: "Dedicated pediatric hospital in Cagliari with 24/7 emergency room. Emergency tel: 112 or +39 070 609 5500."
+      },
+      color: "#e11d48"
+    },
+    {
+      id: 51,
+      name: { de: "Farmacia San Giacomo (Maracalagonis)", en: "Pharmacy San Giacomo (Maracalagonis)" },
+      category: "notfall",
+      coords: [39.2785, 9.2462],
+      driveTime: { de: "ca. 2 Min.", en: "approx. 2 mins" },
+      rating: { de: "💊 Apotheke vor Ort", en: "💊 Local Pharmacy" },
+      description: {
+        de: "Apotheke direkt in Maracalagonis für Medikamente, Pflaster und Kleinkindbedarf.",
+        en: "Local pharmacy in Maracalagonis for medicines, infant care and essentials."
+      },
+      color: "#e11d48"
+    },
+    {
+      id: 52,
+      name: { de: "Conad Superstore (Quartu Sant'Elena)", en: "Conad Superstore (Large Supermarket)" },
+      category: "notfall",
+      coords: [39.2482, 9.1895],
+      driveTime: { de: "ca. 10 Min.", en: "approx. 10 mins" },
+      rating: { de: "🛒 Großer Supermarkt", en: "🛒 Large Supermarket" },
+      description: {
+        de: "Großer moderner Supermarkt mit riesiger Auswahl: Windeln, Babynahrung, frische Lebensmittel und Strandzubehör.",
+        en: "Large modern supermarket with everything: baby food, diapers, fresh groceries and beach essentials."
+      },
+      color: "#e11d48"
     }
   ];
 
@@ -727,19 +1222,67 @@
   const markers = {};
 
   function getGmapsLink(loc) {
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.gmapsQuery)}`;
+    return `https://www.google.com/maps/search/?api=1&query=${loc.coords[0]},${loc.coords[1]}`;
   }
 
   function renderUI() {
     const t = i18n[currentLang];
     
-    // Header texts
+    // Header & Modal texts
     document.getElementById('ui-title').textContent = t.title;
     document.getElementById('ui-subtitle').textContent = t.subtitle;
     document.getElementById('lang-text').textContent = t.langText;
     document.getElementById('lang-flag').textContent = t.langFlag;
     document.getElementById('ui-tab-list').textContent = t.tabList;
     document.getElementById('ui-tab-map').textContent = t.tabMap;
+    document.getElementById('ui-info-btn').textContent = t.infoBtn;
+    document.getElementById('ui-phrases-btn').textContent = t.phrasesBtn;
+    document.getElementById('ui-pack-btn').textContent = t.packBtn;
+    document.getElementById('ui-rules-btn').textContent = t.rulesBtn;
+
+    document.getElementById('ui-wind-hint').innerHTML = t.windHint;
+    document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+    document.getElementById('ui-modal-title').textContent = t.modalHeader;
+    document.getElementById('ui-modal-body').innerHTML = t.modalContent;
+    document.getElementById('ui-phrase-title').textContent = t.phraseTitle;
+    document.getElementById('ui-checklist-title').textContent = t.checklistTitle;
+    document.getElementById('ui-rules-title').textContent = t.rulesTitle;
+    document.getElementById('ui-rules-body').innerHTML = t.rulesContent;
+
+    // Render Phrasebook
+    let phraseHtml = '';
+    t.phrases.forEach(group => {
+      phraseHtml += `<h3 style="color:#0284c7; margin: 12px 0 6px; font-size:0.95rem;">${group.cat}</h3>`;
+      group.items.forEach(p => {
+        phraseHtml += `
+          <div class="phrase-card">
+            <div class="phrase-it">${p.it}</div>
+            <div class="phrase-trans">${p.de}</div>
+          </div>
+        `;
+      });
+    });
+    document.getElementById('ui-phrase-body').innerHTML = phraseHtml;
+
+    // Render Checklist
+    let checkHtml = '';
+    t.checklist.forEach(group => {
+      checkHtml += `
+        <div class="checklist-group">
+          <div class="checklist-title">${group.group}</div>
+      `;
+      group.items.forEach(item => {
+        const isChecked = !!checklistState[item.id];
+        checkHtml += `
+          <label class="check-item ${isChecked ? 'done' : ''}" id="check-label-${item.id}">
+            <input type="checkbox" id="check-${item.id}" ${isChecked ? 'checked' : ''} onchange="toggleChecklistItem('${item.id}')">
+            <span>${item.label}</span>
+          </label>
+        `;
+      });
+      checkHtml += `</div>`;
+    });
+    document.getElementById('ui-checklist-body').innerHTML = checkHtml;
 
     // Update filter button texts
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -749,29 +1292,67 @@
       }
     });
 
-    renderList(activeFilter);
+    renderList();
     updatePopups();
   }
 
-  function renderList(filter = 'all') {
+  function toggleChecklistItem(id) {
+    const cb = document.getElementById(`check-${id}`);
+    const label = document.getElementById(`check-label-${id}`);
+    if (cb && label) {
+      checklistState[id] = cb.checked;
+      if (cb.checked) {
+        label.classList.add('done');
+      } else {
+        label.classList.remove('done');
+      }
+      localStorage.setItem('sardinia_checklist', JSON.stringify(checklistState));
+    }
+  }
+
+  function isMatch(loc) {
+    const t = i18n[currentLang];
+    const name = (loc.name[currentLang] || '').toLowerCase();
+    const desc = (loc.description[currentLang] || '').toLowerCase();
+    const cat = (t.categories[loc.category] || '').toLowerCase();
+    const q = searchQuery.toLowerCase();
+
+    const matchesSearch = !q || name.includes(q) || desc.includes(q) || cat.includes(q);
+    
+    let matchesFilter = true;
+    if (activeFilter === 'fav') {
+      matchesFilter = favorites.includes(loc.id) || loc.category === 'home';
+    } else if (activeFilter !== 'all') {
+      matchesFilter = loc.category === activeFilter || loc.category === 'home';
+    }
+
+    return matchesSearch && matchesFilter;
+  }
+
+  function renderList() {
     const listEl = document.getElementById('list');
     listEl.innerHTML = '';
     const t = i18n[currentLang];
     
+    let visibleCount = 0;
+
     locations.forEach(loc => {
-      if (filter !== 'all' && loc.category !== filter && loc.category !== 'home') return;
-      
+      if (!isMatch(loc)) return;
+      visibleCount++;
+
+      const isFav = favorites.includes(loc.id);
       const card = document.createElement('div');
       card.className = `item-card ${loc.category === 'home' ? 'selected' : ''}`;
       card.id = `card-${loc.id}`;
       card.onclick = (e) => {
-        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        if (e.target.tagName === 'A' || e.target.closest('a') || e.target.tagName === 'BUTTON' || e.target.closest('.fav-btn')) return;
         focusLocation(loc.id);
       };
       
       const name = loc.name[currentLang];
       const desc = loc.description[currentLang];
       const driveTime = loc.driveTime[currentLang];
+      const rating = typeof loc.rating === 'object' ? loc.rating[currentLang] : loc.rating;
       const categoryLabel = t.categories[loc.category] || loc.category;
 
       card.innerHTML = `
@@ -781,10 +1362,11 @@
         </div>
         <div class="card-meta">
           <span>🚗 ${driveTime}</span>
-          <span class="rating-badge">${loc.rating}</span>
+          <span class="rating-badge">${rating}</span>
         </div>
         <div class="card-desc">${desc}</div>
-        <div style="text-align: right;">
+        <div class="card-footer">
+          ${loc.category !== 'home' ? `<button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(${loc.id})">${isFav ? '★' : '☆'}</button>` : '<div></div>'}
           <a class="gmaps-btn" href="${getGmapsLink(loc)}" target="_blank" rel="noopener noreferrer">
             ${t.gmapsBtn}
           </a>
@@ -792,6 +1374,36 @@
       `;
       listEl.appendChild(card);
     });
+
+    if (visibleCount === 0) {
+      listEl.innerHTML = `<div style="text-align:center; padding:30px 10px; color:#64748b; font-size:0.9rem;">${t.noResults}</div>`;
+    }
+
+    // Update map layer visibility
+    locations.forEach(loc => {
+      if (markers[loc.id]) {
+        if (isMatch(loc)) {
+          map.addLayer(markers[loc.id]);
+        } else {
+          map.removeLayer(markers[loc.id]);
+        }
+      }
+    });
+  }
+
+  function toggleFav(id) {
+    if (favorites.includes(id)) {
+      favorites = favorites.filter(f => f !== id);
+    } else {
+      favorites.push(id);
+    }
+    localStorage.setItem('sardinia_favs', JSON.stringify(favorites));
+    renderList();
+  }
+
+  function handleSearch() {
+    searchQuery = document.getElementById('searchInput').value.trim();
+    renderList();
   }
 
   function updatePopups() {
@@ -801,15 +1413,16 @@
         const name = loc.name[currentLang];
         const desc = loc.description[currentLang];
         const driveTime = loc.driveTime[currentLang];
+        const rating = typeof loc.rating === 'object' ? loc.rating[currentLang] : loc.rating;
 
         markers[loc.id].setPopupContent(`
           <div class="popup-title">${name}</div>
           <div class="popup-meta">
             <span>🚗 ${driveTime}</span>
-            <span class="rating-badge">${loc.rating}</span>
+            <span class="rating-badge">${rating}</span>
           </div>
           <div class="popup-desc">${desc}</div>
-          <div>
+          <div style="text-align: right;">
             <a class="gmaps-btn" href="${getGmapsLink(loc)}" target="_blank" rel="noopener noreferrer">
               ${t.gmapsBtn}
             </a>
@@ -826,6 +1439,9 @@
     else if (loc.category === 'natur') iconChar = '🌿';
     else if (loc.category === 'stadt') iconChar = '🏛️';
     else if (loc.category === 'gastro') iconChar = '🍕';
+    else if (loc.category === 'markt') iconChar = '🛒';
+    else if (loc.category === 'eis') iconChar = '🍦';
+    else if (loc.category === 'notfall') iconChar = '🏥';
 
     const icon = L.divIcon({
       className: 'custom-pin',
@@ -848,7 +1464,6 @@
   function focusLocation(id) {
     const loc = locations.find(l => l.id === id);
     if (loc && markers[id]) {
-      // If on mobile and clicking from list, switch to map view
       if (window.innerWidth <= 768) {
         switchMobileView('map');
       }
@@ -877,17 +1492,7 @@
       }
     });
     
-    renderList(category);
-    
-    locations.forEach(loc => {
-      if (markers[loc.id]) {
-        if (category === 'all' || loc.category === category || loc.category === 'home') {
-          map.addLayer(markers[loc.id]);
-        } else {
-          map.removeLayer(markers[loc.id]);
-        }
-      }
-    });
+    renderList();
   }
 
   function toggleLanguage() {
@@ -910,6 +1515,16 @@
       tabMap.classList.add('active');
       setTimeout(() => { map.invalidateSize(); }, 300);
     }
+  }
+
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+  }
+  function closeModalOnOverlay(e, id) {
+    if (e.target.id === id) closeModal(id);
   }
 
   // Initial load
