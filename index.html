@@ -235,6 +235,7 @@
     .tag-stadt { background: #fef3c7; color: #d97706; }
     .tag-natur { background: #dcfce7; color: #16a34a; }
     .tag-gastro { background: #fce7f3; color: #be185d; }
+    .tag-boot { background: #ccfbf1; color: #0f766e; }
     .tag-markt { background: #f3e8ff; color: #7e22ce; }
     .tag-eis { background: #ffedd5; color: #c2410c; }
     .tag-notfall { background: #ffe4e6; color: #e11d48; }
@@ -498,6 +499,7 @@
     <button class="filter-btn" data-filter="fav" onclick="filterItems('fav')">⭐ Favoriten</button>
     <button class="filter-btn" data-filter="strand" onclick="filterItems('strand')">🏖️ Strände</button>
     <button class="filter-btn" data-filter="gastro" onclick="filterItems('gastro')">🍕 Restaurants</button>
+    <button class="filter-btn" data-filter="boot" onclick="filterItems('boot')">🚤 Bootsverleih</button>
     <button class="filter-btn" data-filter="markt" onclick="filterItems('markt')">🛒 Märkte</button>
     <button class="filter-btn" data-filter="eis" onclick="filterItems('eis')">🍦 Eisdielen</button>
     <button class="filter-btn" data-filter="stadt" onclick="filterItems('stadt')">🏛️ Kultur</button>
@@ -591,11 +593,13 @@
       searchPlaceholder: "🔍 Suchen (z.B. Pizza, Sand, Markt, Arzt)...",
       windHint: "<strong>Wind-Tipp:</strong> Bei Mistral (NW) sind Costa Rei & Villasimius spiegelglatt!",
       gmapsBtn: "📍 Google Maps",
+      websiteBtn: "🌐 Website",
       filters: {
         all: "Alle",
         fav: "⭐ Favoriten",
         strand: "🏖️ Strände",
         gastro: "🍕 Restaurants",
+        boot: "🚤 Bootsverleih",
         markt: "🛒 Märkte",
         eis: "🍦 Eisdielen",
         stadt: "🏛️ Kultur",
@@ -606,6 +610,7 @@
         home: "Unterkunft",
         strand: "Strand",
         gastro: "Restaurant / Bar",
+        boot: "Bootsverleih",
         markt: "Markt / Einkaufen",
         eis: "Eisdiele / Gelateria",
         stadt: "Stadt / Kultur",
@@ -708,11 +713,13 @@
       searchPlaceholder: "🔍 Search (e.g. Pizza, Sand, Market, Doctor)...",
       windHint: "<strong>Wind Tip:</strong> During Mistral (NW), Costa Rei & Villasimius are calm & flat!",
       gmapsBtn: "📍 Google Maps",
+      websiteBtn: "🌐 Website",
       filters: {
         all: "All",
         fav: "⭐ Favorites",
         strand: "🏖️ Beaches",
         gastro: "🍕 Restaurants",
+        boot: "🚤 Boat Rental",
         markt: "🛒 Markets",
         eis: "🍦 Gelato",
         stadt: "🏛️ Culture",
@@ -723,6 +730,7 @@
         home: "Base",
         strand: "Beach",
         gastro: "Restaurant / Bar",
+        boot: "Boat Rental",
         markt: "Market / Shopping",
         eis: "Gelateria / Ice Cream",
         stadt: "Town / Culture",
@@ -979,6 +987,114 @@
         en: "Popular spot in central Villasimius for crispy pizza, pasta, fresh fish and prompt service."
       },
       color: "#be185d"
+    },
+    // --- BOOTSVERLEIH / SELF-DRIVE MOTORBOATS ---
+    {
+      id: 60,
+      name: { de: "Marina di Capitana (Bootsverleih & Charter)", en: "Marina di Capitana (Boat Rental & Charter)" },
+      category: "boot",
+      coords: [39.2046, 9.3087],
+      driveTime: { de: "ca. 15 Min.", en: "approx. 15 mins" },
+      rating: { de: "🚤 nächster Hafen · vorab anfragen", en: "🚤 closest marina · ask ahead" },
+      description: {
+        de: "Nächstgelegener Hafen Richtung Küste. Gute erste Anlaufstelle für Tagescharter/Gommoni; für 7 Erwachsene + 1 Kind unbedingt nach 8 zugelassenen Plätzen oder 2 Booten fragen.",
+        en: "Closest marina on the coast. Good first stop for day charters/RIB rentals; for 7 adults + 1 child ask specifically for 8 approved seats or 2 boats."
+      },
+      color: "#0f766e"
+    },
+    {
+      id: 61,
+      name: { de: "Marina Piccola Cagliari (Motorboot-Verleiher)", en: "Marina Piccola Cagliari (Motorboat Rentals)" },
+      category: "boot",
+      coords: [39.1939, 9.1605],
+      driveTime: { de: "ca. 25 Min.", en: "approx. 25 mins" },
+      rating: { de: "🚤 mehrere Anbieter · nah bei Poetto", en: "🚤 several operators · near Poetto" },
+      description: {
+        de: "Praktischer Hafen direkt am Poetto. Mehrere Anbieter für Motorboote/Schlauchboote; sehr sinnvoll, wenn ihr kurze Anfahrt und einfache Logistik wollt.",
+        en: "Convenient marina right by Poetto beach. Several operators offer motorboats/RIBs; a practical option for short driving distance and easy logistics."
+      },
+      color: "#0f766e"
+    },
+    {
+      id: 62,
+      name: { de: "Porto Turistico di Villasimius", en: "Villasimius Tourist Marina" },
+      category: "boot",
+      coords: [39.1249, 9.5065],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "🚤 Top-Revier · viele Gommoni", en: "🚤 top boating area · many RIBs" },
+      description: {
+        de: "Beste Lage für Capo Carbonara, Porto Giunco, Isola dei Cavoli und Punta Molentis. Hier findet ihr die größte Auswahl; ohne Bootsführerschein meist nur 40-PS-Gommoni.",
+        en: "Best starting point for Capo Carbonara, Porto Giunco, Isola dei Cavoli and Punta Molentis. Biggest rental choice; without a license usually limited to 40 HP RIBs."
+      },
+      color: "#0f766e"
+    },
+    {
+      id: 63,
+      name: { de: "Fiore di Maggio Boat Rental (Villasimius)", en: "Fiore di Maggio Boat Rental (Villasimius)" },
+      category: "boot",
+      coords: [39.1324, 9.5037],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "🚤 Gommoni nahe Campulongu", en: "🚤 RIB rentals near Campulongu" },
+      description: {
+        de: "Bekannte Adresse im Raum Campulongu/Villasimius für Schlauchboote und Ausflüge. Fragt ausdrücklich nach Kapazität 8 Personen inkl. Kind und ob ohne patente nautica möglich.",
+        en: "Known spot around Campulongu/Villasimius for RIB rentals and boat trips. Ask explicitly for 8-person capacity including the child and whether no boating license is accepted."
+      },
+      color: "#0f766e"
+    },
+    {
+      id: 64,
+      name: { de: "Noleggio Gommoni Villasimius (Hafenbereich)", en: "Villasimius RIB Rentals (Harbor Area)" },
+      category: "boot",
+      coords: [39.1264, 9.5079],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "🚤 40 PS meist ohne Führerschein", en: "🚤 40 HP usually license-free" },
+      description: {
+        de: "Im Hafenbereich sitzen mehrere Verleiher für 'gommoni senza patente'. Für eure Gruppengröße realistisch: ein größeres 7/8-Personen-Gommone oder zwei kleinere Boote.",
+        en: "The harbor area has multiple 'gommoni senza patente' operators. For your group, expect either one larger 7/8-person RIB or two smaller boats."
+      },
+      color: "#0f766e"
+    },
+    {
+      id: 65,
+      name: { de: "Click&Boat Suche: Villasimius", en: "Click&Boat Search: Villasimius" },
+      category: "boot",
+      coords: [39.1258, 9.5069],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "🚤 Online vergleichen · ab ca. 100–180 €/Tag", en: "🚤 compare online · from about €100–180/day" },
+      description: {
+        de: "Große Plattform mit vielen Angeboten in Villasimius. Filtert nach Motorboot/Gommone und prüft Kapazität 8 Personen, Kaution, Sprit und Führerscheinpflicht.",
+        en: "Large rental platform with many Villasimius listings. Filter by motorboat/RIB and check 8-person capacity, deposit, fuel and license requirements."
+      },
+      websiteUrl: "https://www.clickandboat.com/it/noleggio-barche/italia/villasimius",
+      color: "#0f766e"
+    },
+    {
+      id: 66,
+      name: { de: "Nautal Suche: Villasimius", en: "Nautal Search: Villasimius" },
+      category: "boot",
+      coords: [39.1258, 9.5069],
+      driveTime: { de: "ca. 45 Min.", en: "approx. 45 mins" },
+      rating: { de: "🚤 Boote ohne Führerschein gelistet", en: "🚤 includes no-license boats" },
+      description: {
+        de: "Nautal listet in Villasimius u.a. führerscheinfreie Boote, Motorboote und RIBs. Praktisch zum Gegencheck von Verfügbarkeit und Preisen.",
+        en: "Nautal lists without-license boats, motorboats and RIBs in Villasimius. Useful for cross-checking availability and prices."
+      },
+      websiteUrl: "https://www.nautal.com/boat-rental/italy/villasimius",
+      color: "#0f766e"
+    },
+    {
+      id: 67,
+      name: { de: "Scansail Suche: Sardinien/Cagliari", en: "Scansail Search: Sardinia/Cagliari" },
+      category: "boot",
+      coords: [39.1939, 9.1605],
+      driveTime: { de: "ca. 25–45 Min.", en: "approx. 25–45 mins" },
+      rating: { de: "🚤 Plattform · auch Cagliari-Angebote", en: "🚤 platform · also Cagliari listings" },
+      description: {
+        de: "Scansail ist eine weitere geprüfte Plattform für Bootsmiete. Besonders sinnvoll als zusätzlicher Vergleich für Cagliari/Villasimius und größere Boote für 8 Personen.",
+        en: "Scansail is another verified boat rental platform. Useful as an additional comparison source for Cagliari/Villasimius and larger 8-person boats."
+      },
+      websiteUrl: "https://www.scansail.com/",
+      color: "#0f766e"
     },
     // --- MÄRKTE ---
     {
@@ -1367,9 +1483,12 @@
         <div class="card-desc">${desc}</div>
         <div class="card-footer">
           ${loc.category !== 'home' ? `<button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(${loc.id})">${isFav ? '★' : '☆'}</button>` : '<div></div>'}
-          <a class="gmaps-btn" href="${getGmapsLink(loc)}" target="_blank" rel="noopener noreferrer">
-            ${t.gmapsBtn}
-          </a>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
+            ${loc.websiteUrl ? `<a class="gmaps-btn" href="${loc.websiteUrl}" target="_blank" rel="noopener noreferrer">${t.websiteBtn}</a>` : ''}
+            <a class="gmaps-btn" href="${getGmapsLink(loc)}" target="_blank" rel="noopener noreferrer">
+              ${t.gmapsBtn}
+            </a>
+          </div>
         </div>
       `;
       listEl.appendChild(card);
@@ -1422,7 +1541,8 @@
             <span class="rating-badge">${rating}</span>
           </div>
           <div class="popup-desc">${desc}</div>
-          <div style="text-align: right;">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
+            ${loc.websiteUrl ? `<a class="gmaps-btn" href="${loc.websiteUrl}" target="_blank" rel="noopener noreferrer">${t.websiteBtn}</a>` : ''}
             <a class="gmaps-btn" href="${getGmapsLink(loc)}" target="_blank" rel="noopener noreferrer">
               ${t.gmapsBtn}
             </a>
@@ -1439,6 +1559,7 @@
     else if (loc.category === 'natur') iconChar = '🌿';
     else if (loc.category === 'stadt') iconChar = '🏛️';
     else if (loc.category === 'gastro') iconChar = '🍕';
+    else if (loc.category === 'boot') iconChar = '🚤';
     else if (loc.category === 'markt') iconChar = '🛒';
     else if (loc.category === 'eis') iconChar = '🍦';
     else if (loc.category === 'notfall') iconChar = '🏥';
